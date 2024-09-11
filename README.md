@@ -17,7 +17,8 @@ Response code: 200 on success,  and 500 on an error
 ## Future work
 - Wait the time window for the rate limit to reset and continue fetching the repositories.
 - Make API calls parallel to reduce the time taken to fetch the repositories.
-- avoid looping through the repositories to get the owner's login and the amount of repositories they have. time complexity is O(n^2) and can be reduced to O(n) by using a hashmap to store the owner's login and the amount of repositories they have.
+- Avoid looping through the repositories to get the owner's login and the amount of repositories they have. time complexity is O(n^2) and can be reduced to O(n) by using a hashmap to store the owner's login and the amount of repositories they have.
+- Add unit testing, mock the API calls to Github.
 
 ## Installation
 
