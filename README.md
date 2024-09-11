@@ -8,6 +8,8 @@ This application listens on port 8080 and exposes APIs that allow users to acces
 
 Retrieves a list of all public repositories on Github using the public URL https://api.github.com/repositories. 
 
+Please be advised that this API comes with a rate limit, which is why the application retrieves the repository list until the limit is met and then ceases. In the future, the application will wait for the designated time window to continue collecting all the data.
+
 Once the list is fetched, it prints the name of the repositories in alphabetical order. It also prints a list of the owners (login) and the amount of repositories they have.
  - Response:
 Response code: 200 on success,  and 500 on an error
