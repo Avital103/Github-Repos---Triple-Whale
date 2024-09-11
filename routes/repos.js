@@ -6,7 +6,7 @@ let router = express.Router();
 router.get('/', async function (req, res, next) {
     try {
         // Fetch the list of repositories
-        const data = await getRepositories();
+        const data = await getRepositories(process.env.TOKEN);
 
         // Sort the repositories by name
         const sortedRepositories = data.sort((a, b) => a.name.localeCompare(b.name));
@@ -36,7 +36,7 @@ router.get('/', async function (req, res, next) {
     }
 });
 
-async function getRepositories() {
+async function getRepositories(token) {
     const url = 'https://api.github.com/repositories';
     let page = 1;
     let allData = [];
@@ -45,6 +45,7 @@ async function getRepositories() {
             url: `${url}?since=${page}`,
             headers: {
                 'User-Agent': 'request',
+                'Authorization': `Bearer ${token}`
             }
         };
         const response = await new Promise((resolve, reject) => {
